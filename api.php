@@ -33,15 +33,16 @@
             
                     if(!$fields){
                         echo 'Remote API not running';
+                    } else {
+                        foreach( $fields as $field):
+                            echo '<tr>';
+                            echo '<th scope="row">'.$field['id'].'</th>';
+                            echo '<td>'.$field['name'].'</td>';
+                            echo '<td>'.$field['age'].'</td>';
+                            echo '</tr>';
+                        endforeach;
                     }
 
-                    foreach( $fields as $field):
-                        echo '<tr>';
-                        echo '<th scope="row">'.$field['id'].'</th>';
-                        echo '<td>'.$field['name'].'</td>';
-                        echo '<td>'.$field['age'].'</td>';
-                        echo '</tr>';
-                    endforeach;
                 ?>
         </tbody>
     </table>
