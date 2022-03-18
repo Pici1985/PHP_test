@@ -20,7 +20,7 @@
     <h1 class="my-5">Data from my Custom little API</h1>
 
     <table class="table bg-light my-5">
-        <thead>
+        <thead class="bg-success">
             <tr>
                 <th scope="col">Id</th>                
                 <th scope="col">Name</th>
@@ -31,6 +31,10 @@
                 <?php
                     $fields = json_decode(file_get_contents('http://localhost/api/'), TRUE);            
             
+                    if(!$fields){
+                        echo 'Remote API not running';
+                    }
+
                     foreach( $fields as $field):
                         echo '<tr>';
                         echo '<th scope="row">'.$field['id'].'</th>';
