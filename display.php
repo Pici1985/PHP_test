@@ -30,7 +30,7 @@ include 'connect.php';
 
         <button class="btn btn-primary"><a href="user.php" class="text-light">Add user</a></button>  
         
-        <table class="table">
+        <table class="table bg-light my-5">
             <thead>
                 <tr>
                     <th scope="col">Id</th>
