@@ -18,6 +18,30 @@
     <div class="container">
         <h1 class="text-center mt-5">Landing Page</h1>
 
+        <div class="d-flex">
+            <form action="index.php" method="post">
+                <input class="btn btn-success m-1" type="submit" name="someAction" value="Appear!!" />
+            </form>
+            <button class="btn btn-danger m-1" onClick="disappear()">Disappear!!</button>
+        </div>
+        
+
+        <?php
+        
+            if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['someAction']))
+            {
+                boom();
+            }
+
+            function boom()
+            {
+                echo '<h1 id="boom">Boom!!</h1>';
+            }
+
+             
+        
+        ?>
+
         <?php
             $fields = json_decode(file_get_contents('https://justfields.com/project/eXrglmyB/json'), TRUE);
             
@@ -40,5 +64,6 @@
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
 </body>
 </html>
