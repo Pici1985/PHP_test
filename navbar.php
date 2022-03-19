@@ -13,10 +13,13 @@
             </a>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item m-1">
-                    <button class="btn btn-success"><a class="nav-link active text-light" aria-current="page" href="api.php">API</a></button>
+                    <button class="btn btn-warning"><a class="nav-link active text-light" aria-current="page" href="api.php">API</a></button>
                 </li>               
                 <li class="nav-item m-1">
-                    <button class="btn btn-warning"><a class="nav-link active text-light" aria-current="page" href="display.php">Display</a></button>
+                    <button class="btn btn-success"><a class="nav-link active text-light" aria-current="page" href="display.php">Display</a></button>
+                </li>               
+                <li class="nav-item m-1">
+                    <button class="btn btn-primary"><a class="nav-link active text-light" aria-current="page" href="login.php">Login</a></button>
                 </li>               
             </ul>
            
