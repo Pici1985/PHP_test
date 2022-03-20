@@ -1,3 +1,17 @@
+let option = { 
+    animation: true,
+    delay: 3000
+};
+
+function toasty(){
+    console.log('taosty');
+    let toastHtMLelement = document.getElementById('liveToast');
+
+    let toastElement = new bootstrap.Toast( toastHtMLelement, option );
+
+    toastElement.show();
+}
+
 function disappear(){
     document.getElementById('boom').remove();
 };

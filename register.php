@@ -25,6 +25,8 @@ if(isset($_POST['submit'])){
 
     // if theres a result redirect else throw error
     if($result){
+        $seconds = 3;
+        sleep($seconds);
         header('location:login.php');
     } else {
         die(mysqli_error($con));
@@ -70,11 +72,25 @@ if(isset($_POST['submit'])){
         </div>
         
         <div class="d-flex">
-            <button type="submit" class="btn btn-primary m-1" name="submit" id="submitButton" disabled>Submit</button>
+            <button type="submit" class="btn btn-primary m-1" name="submit" id="submitButton" disabled onClick="toasty()">Submit</button>
             <button class="btn btn-danger m-1" name="submit"><a class="text-light" href="login.php"> Cancel </a></button>
         </div>
-
     </form>
+
+    <!-- <button type="button" class="btn btn-primary" id="liveToastBtn" onClick="toasty()">Show live toast</button> -->
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-success">
+            <strong class="me-auto text-dark">Success</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+            User registration successful!
+            </div>
+        </div>
+    </div>
+
     </div>
 
     <?php
