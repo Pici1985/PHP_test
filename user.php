@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
 
     <form method="post">
         <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
+            <label for="name" class="form-label">username</label>
             <input type="text" class="form-control" id="name" aria-describedby="nameHelp" 
             placeholder="Enter your Name" 
             name="name" autocomplete="off">

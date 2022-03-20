@@ -37,10 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
           echo "admin";
           $_SESSION["username"] = $username;  
           header("location:adminhome.php");
-          break;
-        default:
-          echo '<p id="usernameerror">'.'username or password incorrect'.'</p>';
-        //   header("location:login.php");
+          break;  
     }
 }
 
@@ -89,9 +86,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 <label for="floatingPassword">Password</label>
             </div>
             <div class="d-grid">
-                <input class="btn btn-primary mt-3" type="submit" value="Login" onClick="validate()">
+                <input class="btn btn-primary mt-3" type="submit" value="Login" data-bs-toggle="modal" data-bs-target="#staticBackdrop">                
+                <p class="text-center my-1">No account yet??</p>
+                <a class="text-center my-1" href="register.php">Register one</a>
             </div>
+
         </form>
+       
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger" id="staticBackdropLabel">Error</h5>
+                    <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span>Username or password incorrect.</span>
+                </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <?php

@@ -3,14 +3,23 @@ function disappear(){
 };
 
 
-function validate(){
-    console.log('validate called');
-    // let error = document.getElementById('usernameerror');
+let username = document.getElementById('username');
+let password = document.getElementById('password');
 
-    // if(error){
-    //     console.log('anyad');
-    //     error.remove();   
-    // } else {
-    //     window.location.replace("login.php");   
-    // }
-}
+username.addEventListener('keyup', () => {
+    // console.log(username.value);
+    // console.log(password.value);
+    if(username.value && password.value !== ""){
+        document.getElementById('submitButton').disabled = false;
+    } else {
+        document.getElementById('submitButton').disabled = true;  
+    }
+})
+
+password.addEventListener('keyup', () => {
+    if(username.value && password.value !== ""){
+        document.getElementById('submitButton').disabled = false;
+    } else {
+        document.getElementById('submitButton').disabled = true; 
+    }
+})
