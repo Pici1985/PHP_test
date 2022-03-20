@@ -32,7 +32,7 @@ include 'connect.php';
         
         <table class="table bg-light my-5">
             <thead>
-                <tr>
+                <tr class="bg-success">
                     <th scope="col">Id</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>

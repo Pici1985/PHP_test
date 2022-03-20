@@ -1,5 +1,7 @@
 <?php
 
+ini_set('display_errors', '0');
+
 $host = "localhost";
 $user = "root";
 $password = "";
@@ -24,23 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $result = mysqli_query($data,$sql);
 
     $row = mysqli_fetch_array($result);
-
-    // if(isset($row["usertype"]) === "user")
-    // {
-    //     echo "user";
-    //     header("location:userhome.php");
-    // }    
-    // if(isset($row["usertype"]) === "admin")
-    // {
-    //     echo "admin";
-    //     header("location:adminhome.php");
-
-    // }
-    // else
-    // {
-    //     echo "username or password incorrect";
-    // } 
-
+  
     switch ($row["usertype"]){
         case "user":
           $_SESSION["username"] = $username;  
@@ -53,22 +39,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
           header("location:adminhome.php");
           break;
         default:
-          echo "username or password incorrect";
+          echo '<p id="usernameerror">'.'username or password incorrect'.'</p>';
+        //   header("location:login.php");
     }
-
-    // var_dump($username);
-    // var_dump($password);
-
-    // echo (isset($row["usertype"]));
-
-
-    //https://www.youtube.com/watch?v=wODW8RLBPt0
-    //22:04
-
-
 }
-
-
 
 ?>
 
@@ -89,19 +63,36 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     
     ?>
 
-    <form action="#" method="POST">
-        <div>
-            <label for="">Username</label>
-            <input type="text" name="username" autocomplete="false" required >
-        </div>
-        <div>
-            <label for="">Password</label>
-            <input type="password" name="password" autocomplete="false" required>
-        </div>
-        <div>
-            <input type="submit" value="Login" >
-        </div>
-    </form>
+    <div class="container" style="min-height: 80vh;">
+        <form action="#" method="POST" class="card p-3 my-5 m-auto" style="width: 50vw;">
+            <h2 class="mb-3">Login</h2>
+            <div class="form-floating mb-3">
+                <input type="text" 
+                       class="form-control"
+                       id="floatingInput"
+                       placeholder="Username"
+                       name="username"
+                       autocomplete="false"
+                       required
+                       >
+                <label for="floatingInput">Username</label>
+            </div>
+            <div class="form-floating">
+                <input type="password"
+                       class="form-control"
+                       id="floatingPassword" 
+                       placeholder="Password"
+                       name="password"
+                       autocomplete="false"
+                       required
+                       >
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div class="d-grid">
+                <input class="btn btn-primary mt-3" type="submit" value="Login" onClick="validate()">
+            </div>
+        </form>
+    </div>
 
     <?php
     
